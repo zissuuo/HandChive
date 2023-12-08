@@ -9,7 +9,7 @@ const StyledButton = styled.button`
     width: 60px; /* 너비 조절 */
     cursor: pointer;
     align-items: center;
-    background-color: aliceblue;
+    //background-color: aliceblue;
     justify-content: center;
 `;
 
