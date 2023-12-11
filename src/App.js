@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 
 // Pages
-import FirstPage from './component/FirstPage';
-import SecondPage from './component/SecondPage';
+import FirstPage from './component/page/FirstPage';
+import SecondPage from './component/page/SecondPage';
 
 
 function App(props) {
