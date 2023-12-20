@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-    position: absolute;
     padding: 7px 7px;
-    font-size: 10px;
+    font-size: 12px;
     border-width: 0px;
-    border-radius: 8px;
-    width: 90px; /* 너비 조절 */
+    border-radius: 15px;
+    display: flex;
+    width: 100%;
     cursor: pointer;
     align-items: center;
     background-color: white;

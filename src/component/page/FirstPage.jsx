@@ -2,13 +2,15 @@ import React from 'react';
 import ImgUpload from '../ui/ImgUpload';
 import styled from 'styled-components';
 import Button from '../ui/Button';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'NanumNeo';
-    src: url('/fonts/NanumSquareNeoOTF-Rg.otf') format('truetype');
+    src: url('/fonts/NanumSquareR.ttf') format('truetype');
   }
     body {
     font-family: 'NanumNeo', sans-serif;
@@ -74,6 +76,7 @@ const ButtonContainer = styled.div`
 
 const FirstPage = () => {
     const navigate = useNavigate();
+    const [imgData, setImageData] = useState([]);
 
     const handleFileSelect = (file) => {
     // 선택한 파일을 처리하는 로직을 추가할 수 있습니다.
@@ -81,10 +84,35 @@ const FirstPage = () => {
     // 여기서 파일을 업로드하거나 다른 작업을 수행할 수 있습니다.
   };
 
-  const handleButtonClick = () => {
-    console.log("Button clicked!");
-    navigate('second-page'); //페이지 이동시 사용
-  };
+    // const handleButtonClick = async () => {
+    //   try {
+    //     // 이미지를 FormData로 만들어 서버로 전송
+    //     const formData = new FormData();
+    //     formData.append('image', imgData);
+    
+    //     // 서버로 이미지 업로드 요청
+    //     const response = await axios.post('http://localhost:5000/upload-image', formData);
+    
+    //     if (response && response.data && response.data.pdfUrl) {
+    //       // 서버로부터 받은 PDF URL을 가져옴
+    //       const pdfUrl = response.data.pdfUrl;
+    
+    //       // Second-page로 이동하면서 PDF URL 전달
+    //       navigate('second-page', { state: { pdfUrl } });
+    //     } else {
+    //       console.error('No PDF URL found in the server response.');
+    //       // 여기서 처리할 로직 추가 (예: 사용자에게 알림 등)
+    //     }
+    //   } catch (error) {
+    //     console.error('Error uploading image to server:', error);
+    //     // 여기서 에러 처리 로직 추가
+    //   }
+    // };
+  
+    const handleButtonClick = () => {
+      console.log("Button clicked!");
+      navigate('second-page'); //페이지 이동시 사용
+    };
 
   return (
   <div>
@@ -97,11 +125,9 @@ const FirstPage = () => {
                         <ImgUpload onFileSelect={handleFileSelect} />
                     </UploadContainer>
                 </Box>
-                <ButtonContainer>
                     <Button
-                            title = "Convert"
+                            title = "Convert ⬆️"
                             onClick={handleButtonClick} />
-                </ButtonContainer>
             </Wrapper>
   </div>
   );
